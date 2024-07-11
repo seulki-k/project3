@@ -12,3 +12,4 @@ plugins {
 
 rootProject.name = 'project3'
 include('app')
+include('project3')
