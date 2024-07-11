@@ -16,7 +16,8 @@ public class TestCommand {
         LocalDate localDate2 = LocalDate.of(2024, 7, 29);
         Book book2 = new Book("백성공주", "독사과 사각사각", false, localDate2);
         Book book3 = new Book("라프텔", "긴머리 샤랄라", true, localDate);
-        Book book4 = new Book("알라딘", "양탄자 슈슈슉", true, localDate);
+        LocalDate localDate3 = LocalDate.of(2024, 7, 5);
+        Book book4 = new Book("알라딘", "양탄자 슈슈슉", false, localDate3);
 
         book.add(book1);
         book.add(book2);

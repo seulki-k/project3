@@ -16,7 +16,6 @@ public class AddBookCommand {
 
     public void execute() {
 
-
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("등록할 도서의 이름 (종료 0) : ");
