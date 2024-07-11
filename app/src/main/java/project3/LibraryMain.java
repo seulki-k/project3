@@ -3,12 +3,14 @@ package project3;
 import project3.command.*;
 import project3.vo.AnsiCode;
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 
 public class LibraryMain {
-
+    Map<String, Command> commandMap = new HashMap<>();
     public static String[] menus = {"등록", "조회", "대여", "반납", "수정", "삭제", "종료"};
 
     public static AddBookCommand addBookCommand = new AddBookCommand();
@@ -20,6 +22,7 @@ public class LibraryMain {
     public static TestCommand testCommand = new TestCommand();
 
     public static void main(String[] args) {
+
 
         LibraryMain.printMainMenus();
         testCommand.execute();
