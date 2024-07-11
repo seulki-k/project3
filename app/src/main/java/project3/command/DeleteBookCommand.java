@@ -14,11 +14,14 @@ public class DeleteBookCommand implements Command{
 
         ViewBookCommand view = new ViewBookCommand();
 
-        view.printAll(book);
+        while (true) {
+            view.printAll(book);
 
-        System.out.print("제거할 도서의 제목 : ");
-        String deleteName =scanner.nextLine();
-        book.removeIf(book1 -> book1.getName().equals(deleteName));
-
+            System.out.print("제거할 도서의 제목 (이전 0): ");
+            String deleteName = scanner.nextLine(); //제거할 도서의 제목을 전달 받음
+            if(deleteName.equals("0"))return;
+            // 람다형식 사용 book의 객체 book1 생성 후 해당 객체의 이름과 입력받은 이름이 동일하면 삭제
+            book.removeIf(book1 -> book1.getName().equals(deleteName));
+        }
     }
 }
