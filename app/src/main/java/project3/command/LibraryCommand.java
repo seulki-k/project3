@@ -7,7 +7,7 @@ public class LibraryCommand {
 
         public static ArrayList<Book> book = new ArrayList<>();
 
-        public void excute(){
+        public void execute(){
 
         }
 }

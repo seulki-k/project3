@@ -1,10 +1,8 @@
 package project3;
 
 import project3.command.LibraryCommand;
-import project3.util.Prompt;
 import project3.vo.AnsiCode;
 
-import java.util.Scanner;
 
 public class LibraryMain {
 
@@ -14,10 +12,7 @@ public class LibraryMain {
 
     public static void main(String[] args) {
         LibraryMain.printMainMenus();
-        Scanner scanner = new Scanner(System.in);
-        int command = Prompt.inputInt("입력할 번호는?", (Object) mainMenus);
-        System.out.println(command);
-        libraryCommand.excute();
+
     }
 
     public static void printMainMenus() {
