@@ -4,4 +4,8 @@ package project3.command;
 // 인덱스 번호 입력하여 available 값 false에서 true로 변경
 
 public class ReturnBookCommand {
+
+    public void execute(){
+
+    }
 }

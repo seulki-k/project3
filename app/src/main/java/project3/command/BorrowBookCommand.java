@@ -4,4 +4,9 @@ package project3.command;
 // 인덱스 번호 입력하여 available 값 true에서 false로 변경
 
 public class BorrowBookCommand {
+
+
+    public void execute(){
+
+    }
 }
