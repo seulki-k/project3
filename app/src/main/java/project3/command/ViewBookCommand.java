@@ -33,8 +33,7 @@ public class ViewBookCommand implements Command {
                         availableFalse(book);
                         break;
                     case 3:
-                        availableTure(book);
-                        availableFalse(book);
+                        printAll(book);
                         break;
                 }
             } catch (NumberFormatException e) {
@@ -72,5 +71,10 @@ public class ViewBookCommand implements Command {
                 }
             }
         }
+    }
+    public void printAll(ArrayList<Book> book){
+        availableTure(book);
+        availableFalse(book);
+
     }
 }
