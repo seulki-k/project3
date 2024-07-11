@@ -5,7 +5,7 @@ import project3.vo.Book;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class TestCommand {
+public class TestCommand implements Command{
 
 
     public void execute(){

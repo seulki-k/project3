@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 //	신규 도서 등록
 
-public class AddBookCommand {
+public class AddBookCommand implements Command {
     // ArrayList<Book> 데이터 저장.
 
     public static ArrayList<Book> book = new ArrayList<Book>();
