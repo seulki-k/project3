@@ -23,18 +23,23 @@ public class ViewBookCommand {
             String command = scanner.nextLine();
             System.out.println();
             if (command.equals("0")) return;
-            int command2 = Integer.parseInt(command);
-            switch (command2) {
-                case 1:
-                    availableTure(book);
-                    break;
-                case 2:
-                    availableFalse(book);
-                    break;
-                case 3:
-                    availableTure(book);
-                    availableFalse(book);
-                    break;
+            try {
+                int command2 = Integer.parseInt(command);
+                switch (command2) {
+                    case 1:
+                        availableTure(book);
+                        break;
+                    case 2:
+                        availableFalse(book);
+                        break;
+                    case 3:
+                        availableTure(book);
+                        availableFalse(book);
+                        break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("잘못된 입력입니다.");
+
             }
         }
     }
@@ -58,7 +63,7 @@ public class ViewBookCommand {
                             + "  대여 중" + AnsiCode.ANSI_RESET + " /  반납 예정 일 : " + AnsiCode.ANSI_STRIKETHROUGH
                             + book1.getDate().getYear() + "." + book1.getDate().getMonth().getValue() + "."
                             + book1.getDate().getDayOfMonth() + AnsiCode.ANSI_RESET + AnsiCode.ANSI_RED
-                            +"  미정" + AnsiCode.ANSI_RESET + "\n");
+                            + "  미정" + AnsiCode.ANSI_RESET + "\n");
                 } else {
                     System.out.println("Title : " + book1.getName() + " /  "
                             + "content : " + book1.getContent() + "\n도서 상태 :" + AnsiCode.ANSI_RED
