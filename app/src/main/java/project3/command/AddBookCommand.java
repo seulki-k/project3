@@ -13,7 +13,10 @@ public class AddBookCommand {
 
     public static ArrayList<Book> book = new ArrayList<Book>();
 
+
     public void execute() {
+
+
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("등록할 도서의 이름 (종료 0) : ");
@@ -23,9 +26,9 @@ public class AddBookCommand {
             String content = scanner.nextLine();
             if (content.equals("0")) return;
             boolean available = true;
-            LocalDate localDate = LocalDate.now();
-            Book book1 = new Book(name, content, available, localDate);
-            book.add(book1);
+            LocalDate localDates = LocalDate.now();
+            Book books = new Book(name, content, available, localDates);
+            book.add(books);
             System.out.println("신규 도서가 등록 되었습니다.");
         }
     }

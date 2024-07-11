@@ -11,24 +11,24 @@ public class LibraryMain {
 
     public static String[] menus = {"등록", "조회", "대여", "반납", "수정", "삭제", "종료"};
 
+    public static AddBookCommand addBookCommand = new AddBookCommand();
+    public static ViewBookCommand viewBookCommand = new ViewBookCommand();
+    public static BorrowBookCommand borrowBookCommand = new BorrowBookCommand();
+    public static ReturnBookCommand returnBookCommand = new ReturnBookCommand();
+    public static UpdateBookCommand updateBookCommand = new UpdateBookCommand();
+    public static DeleteBookCommand deleteBookCommand = new DeleteBookCommand();
+    public static TestCommand testCommand = new TestCommand();
 
     public static void main(String[] args) {
-        AddBookCommand addBookCommand = new AddBookCommand();
-        ViewBookCommand viewBookCommand = new ViewBookCommand();
-        BorrowBookCommand borrowBookCommand = new BorrowBookCommand();
-        ReturnBookCommand returnBookCommand = new ReturnBookCommand();
-        UpdateBookCommand updateBookCommand = new UpdateBookCommand();
-        DeleteBookCommand deleteBookCommand = new DeleteBookCommand();
-
 
         LibraryMain.printMainMenus();
-
+        testCommand.execute();
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("[Main] > ");
             try {
                 String command = scanner.nextLine();
-                if (command.equals("menu")){
+                if (command.equals("menu")) {
                     printMainMenus();
                 }
                 int commandParse = Integer.parseInt(command);
