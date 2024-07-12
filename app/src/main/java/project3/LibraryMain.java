@@ -30,7 +30,7 @@ public class LibraryMain {
         new LibraryMain();
         testCommand.execute();
         while (true) {
-            System.out.println("\n접속 권한을 입력해주세요[GUEST, ADMIN]. ");
+            System.out.print("\n접속 권한을 입력해주세요[GUEST, ADMIN] :  ");
             String grade = scanner.nextLine();
             if (grade.equalsIgnoreCase("admin") || grade.equalsIgnoreCase("guest")) {
                 AuthGrade authGrade = AuthGrade.valueOf(grade.toUpperCase());
@@ -42,7 +42,7 @@ public class LibraryMain {
                     LibraryMain.guestMenus(authGrade);
                 }
             } else {
-                System.out.println("없는 권한입니다. 정확한 권한을 입력해주세요.");
+                System.out.println("\n없는 권한입니다. 정확한 권한을 입력해주세요.");
 
             }
         }
@@ -101,7 +101,7 @@ public class LibraryMain {
                 String command = scanner.nextLine();
                 if (command.equals("menu")) printMainMenus(grade); //menu 입력 시 메뉴 출력
                 if (command.equals("3")) return; // 3입력 시 종료
-                Command com = commandMap.get(menus[Integer.parseInt(command) - 1]);
+                Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
                 com.execute();
             } catch (Exception e) {
                 System.out.println("잘못된 입력입니다.");
