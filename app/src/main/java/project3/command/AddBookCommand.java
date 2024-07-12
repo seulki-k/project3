@@ -21,7 +21,7 @@ public class AddBookCommand implements Command {
             System.out.print("등록할 도서의 이름 (종료 0) : ");
             String name = scanner.nextLine();
             if (name.equals("0")) return;
-            System.out.print("해당 도서 저장의 이름 (종료 0): ");
+            System.out.print("해당 도서 저자 (종료 0): ");
             String Authors = scanner.nextLine();
             if (Authors.equals("0")) return;
             boolean available = true;
