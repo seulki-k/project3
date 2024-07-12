@@ -2,20 +2,24 @@ package project3.vo;
 
 public enum AuthGrade {
     GUEST(1,"게스트"),
-    ADMIN(3,"관리자");
+    ADMIN(102030,"관리자");
 
-    private final int level;
+    private final int pwd;
 
-    public int getLevel() {
-        return level;
+    public int getPwd() {
+        return pwd;
+    }
+
+    public int pwd() {
+        return pwd;
     }
     public String getDescription() {
         return description;
     }
     private final String description;
 
-    AuthGrade(int level, String description) {
-        this.level = level;
+    AuthGrade(int pwd, String description) {
+        this.pwd = pwd;
         this.description = description;
     }
 }

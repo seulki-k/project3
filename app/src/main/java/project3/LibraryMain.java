@@ -29,19 +29,18 @@ public class LibraryMain {
     public static void main(String[] args) {
         new LibraryMain();
         testCommand.execute();
+        String[] image = {AnsiCode.ANSI_YELLOW + " " +
+                " ____    ____    ____    __   __ ",
+                "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
+                "| |_) | | | | | | | | | |     /  ",
+                "|  _ <  | | | | | | | | |     \\ ",
+                "| |_) | | |_| | | |_| | |  | \\ \\ ",
+                "|____/  \\____/  \\____/  |__|  \\__\\ " + AnsiCode.ANSI_RESET
+        };
+        for (String line : image) {
+            System.out.println(line);
+        }
         while (true) {
-            String[] image = {AnsiCode.ANSI_YELLOW + " " +
-                    " ____    ____    ____    __   __ ",
-                    "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
-                    "| |_) | | | | | | | | | |     /  ",
-                    "|  _ <  | | | | | | | | |     \\ ",
-                    "| |_) | | |_| | | |_| | |  | \\ \\ ",
-                    "|____/  \\____/  \\____/  |__|  \\__\\ " + AnsiCode.ANSI_RESET
-            };
-            for (String line : image) {
-                System.out.println(line);
-            }
-
             System.out.print("\n접속 권한을 입력해주세요[GUEST, ADMIN, Exit(종료)] :  ");
             String grade = scanner.nextLine();
             if (grade.equalsIgnoreCase("exit")) {
@@ -49,11 +48,24 @@ public class LibraryMain {
             }
             if (grade.equalsIgnoreCase("admin") || grade.equalsIgnoreCase("guest")) {
                 AuthGrade authGrade = AuthGrade.valueOf(grade.toUpperCase());
-                System.out.println(authGrade.getDescription() + "로 접속하였습니다.");
+
                 if (authGrade.getDescription().equalsIgnoreCase("관리자")) {
-                    LibraryMain.adminMenus(authGrade);
+                    //비밀번호 : 102030
+                    System.out.print("비밀번호를 입력해주세요 : ");
+                    try {
+                        if (authGrade.getPwd() == Integer.parseInt(scanner.nextLine())) {
+                            System.out.println(authGrade.getDescription() + "로 접속하였습니다.");
+                            LibraryMain.adminMenus(authGrade);
+                        }else {
+                            System.out.println("비밀번호가 틀렸습니다.");
+                        }
+                    }catch (NumberFormatException e){
+                        System.out.println("비밀번호가 틀렸습니다.");
+                    }
+
                 }
                 if (authGrade.getDescription().equalsIgnoreCase("게스트")) {
+                    System.out.println(authGrade.getDescription() + "로 접속하였습니다.");
                     LibraryMain.guestMenus(authGrade);
                 }
             } else {
