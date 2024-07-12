@@ -41,7 +41,7 @@ public class LibraryMain {
                 if (authGrade.getDescription().equalsIgnoreCase("관리자")) {
                     LibraryMain.adminMenus(authGrade);
                 }
-                if (authGrade.getDescription().equalsIgnoreCase("손님")) {
+                if (authGrade.getDescription().equalsIgnoreCase("게스트")) {
                     LibraryMain.guestMenus(authGrade);
                 }
             } else {
@@ -52,7 +52,7 @@ public class LibraryMain {
     }
 
     public static void printMainMenus(AuthGrade grade) {
-        System.out.println("\n" + AnsiCode.ANSI_YELLOW + "           [도서 관리 시스템]     " + AnsiCode.ANSI_RESET);
+        System.out.println("\n" + AnsiCode.ANSI_YELLOW + "           [도서 관리 시스템/" + grade.getDescription()+ "]     " + AnsiCode.ANSI_RESET);
 
         if (grade.getDescription().equalsIgnoreCase("관리자")) {
             int count = 1;
@@ -61,7 +61,7 @@ public class LibraryMain {
                 count++;
             }
         }
-        if (grade.getDescription().equalsIgnoreCase("손님")) {
+        if (grade.getDescription().equalsIgnoreCase("게스트")) {
             int count = 1;
             for (String mainMenu : guestMenus) {
                 System.out.println(count + ". " + mainMenu);

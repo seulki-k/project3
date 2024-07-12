@@ -1,7 +1,7 @@
 package project3.vo;
 
 public enum AuthGrade {
-    GUEST(1,"손님"),
+    GUEST(1,"게스트"),
     ADMIN(3,"관리자");
 
     private final int level;
