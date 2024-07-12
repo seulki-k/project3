@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class LibraryMain {
     static Map<String, Command> commandMap = new HashMap<>();
     public static String[] menus = {"등록", "조회/변경", "대여", "반납", "삭제", "종료"};
-    public static String[] guestMenus = {"대여", "반납", "종료"};
+    public static String[] guestMenus = {"대여", "반납","조회", "종료"};
 
     public static TestCommand testCommand = new TestCommand();
 
@@ -100,7 +100,11 @@ public class LibraryMain {
             try {
                 String command = scanner.nextLine();
                 if (command.equals("menu")) printMainMenus(grade); //menu 입력 시 메뉴 출력
-                if (command.equals("3")) return; // 3입력 시 종료
+                if (command.equals("4")) return; // 3입력 시 종료
+                if (command.equalsIgnoreCase("3")) {
+                    ViewBookCommand viewBookCommand = new ViewBookCommand();
+                    viewBookCommand.printAll(AddBookCommand.book);
+                }
                 Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
                 com.execute();
             } catch (Exception e) {

@@ -66,24 +66,27 @@ public class ViewBookCommand implements Command {
         for (Book book1 : book) {
             if (!book1.isAvailable()) {
                 if (book1.getDate().isBefore(LocalDate.now())) {
-                    System.out.println("제목 : " + book1.getName() + " /  "
+                    System.out.println("제목 : " + book1.getName() + " |  "
                             + "저자 : " + book1.getAuthors() + "\n도서 상태 :" + AnsiCode.ANSI_RED
-                            + "  대여 중" + AnsiCode.ANSI_RESET + " /  반납 예정 일 : " + AnsiCode.ANSI_STRIKETHROUGH
+                            + "  대여 중" + AnsiCode.ANSI_RESET + " |  반납 예정 일 : " + AnsiCode.ANSI_STRIKETHROUGH
                             + book1.getDate().getYear() + "." + book1.getDate().getMonth().getValue() + "."
                             + book1.getDate().getDayOfMonth() + AnsiCode.ANSI_RESET + AnsiCode.ANSI_RED
                             + "  미정" + AnsiCode.ANSI_RESET + "\n");
                 } else {
-                    System.out.println("제목 : " + book1.getName() + " /  "
+                    System.out.println("제목 : " + book1.getName() + " |  "
                             + "저자 : " + book1.getAuthors() + "\n도서 상태 :" + AnsiCode.ANSI_RED
-                            + "  대여 중" + AnsiCode.ANSI_RESET + " /  반납 예정 일 : " + book1.getDate().getYear()
+                            + "  대여 중" + AnsiCode.ANSI_RESET + " |  반납 예정 일 : " + book1.getDate().getYear()
                             + "." + book1.getDate().getMonth().getValue() + "." + book1.getDate().getDayOfMonth() + "\n");
                 }
             }
         }
     }
     public void printAll(ArrayList<Book> book){
-        availableTrue(book);
-        availableFalse(book);
+        for (Book book1 : book) {
+            System.out.println("제목 : " + book1.getName() + " |  "
+                    + "저자 : " + book1.getAuthors());
+        }
+        System.out.println();
 
     }
 
