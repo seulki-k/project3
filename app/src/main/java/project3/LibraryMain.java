@@ -49,7 +49,7 @@ public class LibraryMain {
             }
             if (grade.equalsIgnoreCase("admin") || grade.equalsIgnoreCase("guest")) {
                 AuthGrade authGrade = AuthGrade.valueOf(grade.toUpperCase());
-                System.out.println("당신의 등급은 " + authGrade.getDescription() + "입니다.");
+                System.out.println(authGrade.getDescription() + "로 접속하였습니다.");
                 if (authGrade.getDescription().equalsIgnoreCase("관리자")) {
                     LibraryMain.adminMenus(authGrade);
                 }
