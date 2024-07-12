@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class LibraryMain {
     static Map<String, Command> commandMap = new HashMap<>();
     public static String[] menus = {"등록", "조회/변경", "대여", "반납", "삭제", "종료"};
-    public static String[] guestMenus = {"대여", "반납","조회", "종료"};
+    public static String[] guestMenus = {"대여", "반납", "조회", "종료"};
 
     public static TestCommand testCommand = new TestCommand();
 
@@ -30,6 +30,18 @@ public class LibraryMain {
         new LibraryMain();
         testCommand.execute();
         while (true) {
+            String[] image = {AnsiCode.ANSI_YELLOW +" "+
+                    " ____    ____    ____    __   __ ",
+                    "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
+                    "| |_) | | | | | | | | | |     /  ",
+                    "|  _ <  | | | | | | | | |     \\ ",
+                    "| |_) | | |_| | | |_| | |  | \\ \\ ",
+                    "|____/  \\____/  \\____/  |__|  \\__\\ " + AnsiCode.ANSI_RESET
+            };
+            for (String line : image) {
+                System.out.println(line);
+            }
+
             System.out.print("\n접속 권한을 입력해주세요[GUEST, ADMIN, Exit(종료)] :  ");
             String grade = scanner.nextLine();
             if (grade.equalsIgnoreCase("exit")) {
@@ -52,7 +64,7 @@ public class LibraryMain {
     }
 
     public static void printMainMenus(AuthGrade grade) {
-        System.out.println("\n" + AnsiCode.ANSI_YELLOW + "           [도서 관리 시스템/" + grade.getDescription()+ "]     " + AnsiCode.ANSI_RESET);
+        System.out.println("\n" + AnsiCode.ANSI_YELLOW + "           [도서 관리 시스템/" + grade.getDescription() + "]     " + AnsiCode.ANSI_RESET);
 
         if (grade.getDescription().equalsIgnoreCase("관리자")) {
             int count = 1;
