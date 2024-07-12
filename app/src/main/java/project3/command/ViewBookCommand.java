@@ -29,7 +29,7 @@ public class ViewBookCommand implements Command {
                 int command2 = Integer.parseInt(command);
                 switch (command2) {
                     case 1:
-                        availableTure(book);
+                        availableTrue(book);
                         break;
                     case 2:
                         availableFalse(book);
@@ -50,7 +50,7 @@ public class ViewBookCommand implements Command {
         }
     }
 
-    public void availableTure(ArrayList<Book> book) {
+    public void availableTrue(ArrayList<Book> book) {
         for (Book book1 : book) {
             if (book1.isAvailable()) {
                 System.out.println("제목 : " + book1.getName() + " /  "
@@ -80,7 +80,7 @@ public class ViewBookCommand implements Command {
         }
     }
     public void printAll(ArrayList<Book> book){
-        availableTure(book);
+        availableTrue(book);
         availableFalse(book);
 
     }
