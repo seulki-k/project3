@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class LibraryMain {
     static Map<String, Command> commandMap = new HashMap<>();
-    public static String[] menus = {"등록", "조회", "대여", "반납", "삭제", "종료"};
+    public static String[] menus = {"등록", "조회/변경", "대여", "반납", "삭제", "종료"};
 
     public static TestCommand testCommand = new TestCommand();
 
     public LibraryMain() {
         commandMap.put("등록", new AddBookCommand());
-        commandMap.put("조회", new ViewBookCommand());
+        commandMap.put("조회/변경", new ViewBookCommand());
         commandMap.put("대여", new BorrowBookCommand());
         commandMap.put("반납", new ReturnBookCommand());
         commandMap.put("삭제", new DeleteBookCommand());
