@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class LibraryMain {
     static Map<String, Command> commandMap = new HashMap<>();
-    public static String[] menus = {"등록", "조회", "대여", "반납", "수정", "삭제", "종료"};
+    public static String[] menus = {"등록", "조회", "대여", "반납", "삭제", "종료"};
 
     public static TestCommand testCommand = new TestCommand();
 
@@ -19,7 +19,6 @@ public class LibraryMain {
         commandMap.put("조회", new ViewBookCommand());
         commandMap.put("대여", new BorrowBookCommand());
         commandMap.put("반납", new ReturnBookCommand());
-        commandMap.put("수정", new UpdateBookCommand());
         commandMap.put("삭제", new DeleteBookCommand());
     }
 
@@ -34,7 +33,7 @@ public class LibraryMain {
             try {
                 String command = scanner.nextLine();
                 if (command.equals("menu")) printMainMenus(); //menu 입력 시 메뉴 출력
-                if (command.equals("7")) return; // 7입력 시 종료
+                if (command.equals("6")) return; // 6입력 시 종료
                 Command com = commandMap.get(menus[Integer.parseInt(command) - 1]);
                 com.execute();
 

@@ -7,9 +7,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// 보관 도서 => if(반납여부.equals(true))
-// 대여 도서=> if(반납여부.equals(false))
-// 전체 도서
+// 1) 보관 도서 => if(반납여부.equals(true))
+// 2) 대여 도서=> if(반납여부.equals(false))
+// 3) 전체 도서
+// 4) 책 정보 변경.
+
 public class ViewBookCommand implements Command {
 
     public void execute() {
@@ -18,7 +20,7 @@ public class ViewBookCommand implements Command {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("1. 보관 도서    2. 대여 도서    3.전체 도서\n");
+            System.out.println("1. 보관 도서    2. 대여 도서    3.전체 도서    4. 도서 정보 변경 \n");
             System.out.print("조회할 도서(이전 0) : ");
             String command = scanner.nextLine();
             System.out.println();
@@ -34,6 +36,11 @@ public class ViewBookCommand implements Command {
                         break;
                     case 3:
                         printAll(book);
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        System.out.println("없는 항목의 번호입니다.\n");
                         break;
                 }
             } catch (NumberFormatException e) {
