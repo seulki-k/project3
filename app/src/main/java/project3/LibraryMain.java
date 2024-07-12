@@ -30,7 +30,7 @@ public class LibraryMain {
         new LibraryMain();
         testCommand.execute();
         while (true) {
-            String[] image = {AnsiCode.ANSI_YELLOW +" "+
+            String[] image = {AnsiCode.ANSI_YELLOW + " " +
                     " ____    ____    ____    __   __ ",
                     "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
                     "| |_) | | | | | | | | | |     /  ",
