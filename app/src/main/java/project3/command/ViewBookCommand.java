@@ -13,11 +13,11 @@ import java.util.Scanner;
 // 4) 책 정보 변경.
 
 public class ViewBookCommand implements Command {
+    Scanner scanner = new Scanner(System.in);
 
     public void execute() {
         ArrayList<Book> book = AddBookCommand.book;
 
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("1. 보관 도서    2. 대여 도서    3.전체 도서    4. 도서 정보 변경 \n");
@@ -38,6 +38,7 @@ public class ViewBookCommand implements Command {
                         printAll(book);
                         break;
                     case 4:
+                        changeBook(book);
                         break;
                     default:
                         System.out.println("없는 항목의 번호입니다.\n");
@@ -79,9 +80,34 @@ public class ViewBookCommand implements Command {
             }
         }
     }
-    public void printAll(ArrayList<Book> book){
+
+    public void printAll(ArrayList<Book> book) {
         availableTure(book);
         availableFalse(book);
 
+    }
+
+    public void changeBook(ArrayList<Book> book) {
+        while (true) {
+            boolean check = false;
+            System.out.print("변경할 도서 제목 : ");
+            String name = scanner.nextLine();
+            for (Book book1 : book) {
+                if (book1.getName().equals(name)) {
+                    System.out.print("변경될 도서 제목 (" +book1.getName() + ") :");
+                    String name2 = scanner.nextLine();
+                    book1.setName(name2);
+                    System.out.print("변경될 저자 (" + book1.getAuthors() + ") : ");
+                    String authors = scanner.nextLine();
+                    book1.setAuthors(authors);
+                    check = true;
+                    break;
+                }
+            }
+            if (!check) {
+                System.out.println("\n해당 도서가 확인되지 않습니다.\n");
+                break;
+            }
+        }
     }
 }
