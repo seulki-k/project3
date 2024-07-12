@@ -127,7 +127,7 @@ public class LibraryMain {
             try {
                 String command = scanner.nextLine();
                 if (command.equals("menu")) printMainMenus(grade); //menu 입력 시 메뉴 출력
-                if (command.equals("4")) return; // 3입력 시 종료
+                if (command.equals("4")) return; // 4입력 시 종료
                 if (command.equalsIgnoreCase("3")) {
                     ViewBookCommand viewBookCommand = new ViewBookCommand();
                     viewBookCommand.printAll(AddBookCommand.book);
