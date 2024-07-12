@@ -18,6 +18,7 @@ public class ViewBookCommand implements Command {
     public void execute() {
         ArrayList<Book> book = AddBookCommand.book;
 
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("1. 보관 도서    2. 대여 도서    3.전체 도서    4. 도서 정보 변경 \n");
@@ -29,7 +30,7 @@ public class ViewBookCommand implements Command {
                 int command2 = Integer.parseInt(command);
                 switch (command2) {
                     case 1:
-                        availableTure(book);
+                        availableTrue(book);
                         break;
                     case 2:
                         availableFalse(book);
@@ -51,7 +52,7 @@ public class ViewBookCommand implements Command {
         }
     }
 
-    public void availableTure(ArrayList<Book> book) {
+    public void availableTrue(ArrayList<Book> book) {
         for (Book book1 : book) {
             if (book1.isAvailable()) {
                 System.out.println("제목 : " + book1.getName() + " /  "
@@ -80,9 +81,8 @@ public class ViewBookCommand implements Command {
             }
         }
     }
-
-    public void printAll(ArrayList<Book> book) {
-        availableTure(book);
+    public void printAll(ArrayList<Book> book){
+        availableTrue(book);
         availableFalse(book);
 
     }
