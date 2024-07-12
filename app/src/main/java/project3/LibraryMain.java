@@ -30,8 +30,11 @@ public class LibraryMain {
         new LibraryMain();
         testCommand.execute();
         while (true) {
-            System.out.print("\n접속 권한을 입력해주세요[GUEST, ADMIN] :  ");
+            System.out.print("\n접속 권한을 입력해주세요[GUEST, ADMIN, Exit(종료)] :  ");
             String grade = scanner.nextLine();
+            if (grade.equalsIgnoreCase("exit")) {
+                return;
+            }
             if (grade.equalsIgnoreCase("admin") || grade.equalsIgnoreCase("guest")) {
                 AuthGrade authGrade = AuthGrade.valueOf(grade.toUpperCase());
                 System.out.println("당신의 등급은 " + authGrade.getDescription() + "입니다.");
