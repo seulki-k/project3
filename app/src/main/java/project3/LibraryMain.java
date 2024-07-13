@@ -21,6 +21,7 @@ public class LibraryMain {
     public LibraryMain() {
         commandMap.put("등록", new AddBookCommand());
         commandMap.put("조회/변경", new ViewBookCommand());
+        commandMap.put("조회", new ViewBookCommand());
         commandMap.put("대여", new BorrowBookCommand());
         commandMap.put("반납", new ReturnBookCommand());
         commandMap.put("삭제", new DeleteBookCommand());
@@ -123,14 +124,12 @@ public class LibraryMain {
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("[Main] > ");
-            ;
             try {
                 String command = scanner.nextLine();
                 if (command.equals("menu")) printMainMenus(grade); //menu 입력 시 메뉴 출력
                 if (command.equals("4")) return; // 4입력 시 종료
                 if (command.equalsIgnoreCase("3")) {
-                    ViewBookCommand viewBookCommand = new ViewBookCommand();
-                    viewBookCommand.printAll(AddBookCommand.book);
+                    new ViewBookCommand().printAll(AddBookCommand.book);
                 }
                 Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
                 com.execute();
