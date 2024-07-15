@@ -94,7 +94,7 @@ public class ViewBookCommand implements Command {
 
         while (true) {
 
-            boolean check = false;
+
             System.out.print("변경할 도서 제목 : ");
             String name = scanner.nextLine();
             for (Book book1 : book) {
@@ -105,14 +105,11 @@ public class ViewBookCommand implements Command {
                     System.out.print("변경될 저자 (" + book1.getAuthors() + ") : ");
                     String authors = scanner.nextLine();
                     book1.setAuthors(authors);
-                    check = true;
                     return;
                 }
             }
-            if (!check) {
                 System.out.println("\n해당 도서가 확인되지 않습니다.\n");
                 break;
-            }
         }
     }
 }
