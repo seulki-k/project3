@@ -91,7 +91,9 @@ public class ViewBookCommand implements Command {
     }
 
     public void changeBook(ArrayList<Book> book) {
+
         while (true) {
+
             boolean check = false;
             System.out.print("변경할 도서 제목 : ");
             String name = scanner.nextLine();
@@ -104,7 +106,7 @@ public class ViewBookCommand implements Command {
                     String authors = scanner.nextLine();
                     book1.setAuthors(authors);
                     check = true;
-                    break;
+                    return;
                 }
             }
             if (!check) {
