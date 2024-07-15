@@ -21,7 +21,6 @@ public class LibraryMain {
     public LibraryMain() {
         commandMap.put("등록", new AddBookCommand());
         commandMap.put("조회/변경", new ViewBookCommand());
-        commandMap.put("조회", new ViewBookCommand());
         commandMap.put("대여", new BorrowBookCommand());
         commandMap.put("반납", new ReturnBookCommand());
         commandMap.put("삭제", new DeleteBookCommand());
@@ -130,9 +129,10 @@ public class LibraryMain {
                 if (command.equals("4")) return; // 4입력 시 종료
                 if (command.equalsIgnoreCase("3")) {
                     new ViewBookCommand().printAll(AddBookCommand.book);
+                }else {
+                    Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
+                    com.execute();
                 }
-                Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
-                com.execute();
             } catch (Exception e) {
                 System.out.println("잘못된 입력입니다.");
             }
