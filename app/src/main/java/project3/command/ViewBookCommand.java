@@ -83,8 +83,7 @@ public class ViewBookCommand implements Command {
     }
     public void printAll(ArrayList<Book> book){
         for (Book book1 : book) {
-            System.out.println("제목 : " + book1.getName() + " |  "
-                    + "저자 : " + book1.getAuthors());
+            System.out.printf("제목 : %-8s | 저자 : %-10s\n",book1.getName(),book1.getAuthors());
         }
         System.out.println();
 
@@ -93,8 +92,6 @@ public class ViewBookCommand implements Command {
     public void changeBook(ArrayList<Book> book) {
 
         while (true) {
-
-
             System.out.print("변경할 도서 제목 : ");
             String name = scanner.nextLine();
             for (Book book1 : book) {
