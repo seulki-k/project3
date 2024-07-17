@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class LibraryMain {
     static Map<String, Command> commandMap = new HashMap<>();
     public static String[] menus = {"등록", "조회/변경", "대여", "반납", "삭제", "종료"};
@@ -30,12 +29,12 @@ public class LibraryMain {
         new LibraryMain();
         testCommand.execute();
         String[] image = {AnsiCode.ANSI_YELLOW + " " +
-                " ____    ____    ____    __   __ ",
-                "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
-                "| |_) | | | | | | | | | |     /  ",
-                "|  _ <  | | | | | | | | |     \\ ",
-                "| |_) | | |_| | | |_| | |  | \\ \\ ",
-                "|____/  \\____/  \\____/  |__|  \\__\\ " + AnsiCode.ANSI_RESET
+            " ____    ____    ____    __   __ ",
+            "|  _ \\  /  _ \\  /  _ \\  |  |/  / ",
+            "| |_) | | | | | | | | | |     /  ",
+            "|  _ <  | | | | | | | | |     \\ ",
+            "| |_) | | |_| | | |_| | |  | \\ \\ ",
+            "|____/  \\____/  \\____/  |__|  \\__\\ " + AnsiCode.ANSI_RESET
         };
         for (String line : image) {
             System.out.println(line);
@@ -56,10 +55,10 @@ public class LibraryMain {
                         if (authGrade.getPwd() == Integer.parseInt(scanner.nextLine())) {
                             System.out.println(authGrade.getDescription() + "로 접속하였습니다.");
                             LibraryMain.adminMenus(authGrade);
-                        }else {
+                        } else {
                             System.out.println("비밀번호가 틀렸습니다.");
                         }
-                    }catch (NumberFormatException e){
+                    } catch (NumberFormatException e) {
                         System.out.println("비밀번호가 틀렸습니다.");
                     }
 
@@ -70,7 +69,6 @@ public class LibraryMain {
                 }
             } else {
                 System.out.println("\n없는 권한입니다. 정확한 권한을 입력해주세요.");
-
             }
         }
     }
@@ -93,7 +91,6 @@ public class LibraryMain {
             }
         }
         System.out.println();
-
     }
 
     public static void adminMenus(AuthGrade grade) {
@@ -110,12 +107,10 @@ public class LibraryMain {
                 if (command.equals("6")) return; // 6입력 시 종료
                 Command com = commandMap.get(menus[Integer.parseInt(command) - 1]);
                 com.execute();
-
             } catch (Exception e) {
                 System.out.println("잘못된 입력입니다.");
             }
         }
-
     }
 
     public static void guestMenus(AuthGrade grade) {
@@ -125,11 +120,14 @@ public class LibraryMain {
             System.out.print("[Main] > ");
             try {
                 String command = scanner.nextLine();
-                if (command.equals("menu")) printMainMenus(grade); //menu 입력 시 메뉴 출력
+                if (command.equals("menu")) {
+                    printMainMenus(grade); //menu 입력 시 메뉴 출력
+                    continue;
+                }
                 if (command.equals("4")) return; // 4입력 시 종료
-                if (command.equalsIgnoreCase("3")) {
+                if (command.equals("3")) {
                     new ViewBookCommand().printAll(AddBookCommand.book);
-                }else {
+                } else {
                     Command com = commandMap.get(guestMenus[Integer.parseInt(command) - 1]);
                     com.execute();
                 }
@@ -139,4 +137,3 @@ public class LibraryMain {
         }
     }
 }
-
